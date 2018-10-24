@@ -9,6 +9,6 @@ func main() {
 			"message": "pong",
 		})
 	})
-	r.Run(":9000") // listen and serve on 0.0.0.0:8080
+	r.Run(":10086") // listen and serve on 0.0.0.0:8080
 	// router.Run(":3000") for a hard coded port
 }
