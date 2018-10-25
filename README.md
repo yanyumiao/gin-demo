@@ -1,1 +1,1 @@
-Go gin study
+Learning gin
