@@ -1,7 +1,7 @@
 package main
 
-import "net/http"
 import "github.com/gin-gonic/gin"
+import "net/http"
 
 func main() {
 	r := gin.Default()
@@ -16,7 +16,13 @@ func main() {
 		name := c.Param("name")
 		c.String(http.StatusOK, "hello %s", name)
 	})
-
-	r.Run(":10086") // listen and serve on 0.0.0.0:8080
+	// query string parameters
+	r.GET("/welcome", func(c *gin.Context) {
+		firstname := c.DefaultQuery("firstname", "guset")
+		lastname := c.Query("lastname")
+		c.String(http.StatusOK, "hello %s %s", firstname, lastname)
+	})
+	// listen and serve on 0.0.0.0:8080
 	// router.Run(":3000") for a hard coded port
+	r.Run(":10086")
 }
