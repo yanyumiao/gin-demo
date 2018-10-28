@@ -1,1 +1,1 @@
-Learning gin
+gin-demo
