@@ -8,6 +8,7 @@ func InitRouter() *gin.Engine {
 	// router
 	router.GET("/", Hello)
 	router.GET("/test", Test)
+	router.StaticFile("/favicon.ico", "./resource/favicon.ico") // 相对路径 相对main.go
 	//
 	return router
 }
