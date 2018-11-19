@@ -3,6 +3,7 @@ package controller
 import "github.com/gin-gonic/gin"
 import "net/http"
 import model "gin/model"
+import "strconv"
 
 func Test(c *gin.Context) {
 	c.String(http.StatusOK, "test")
@@ -18,6 +19,10 @@ func Pong(c *gin.Context) {
 
 func GetPerson(c *gin.Context) {
 	var p model.Person
-	person, _ := p.Get()
+	var id = c.Param("id") // Notice: string
+	// Notice: 强制类型转换
+	// TODO 总结Go的类型转换
+	p.Id, _ = strconv.Atoi(id)
+	person := p.Get()
 	c.String(http.StatusOK, person.FirstName)
 }
