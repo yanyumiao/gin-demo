@@ -30,15 +30,13 @@ func (p *Person) Add() (id int64, err error) {
 	return
 }
 
-func (p *Person) GetPersons() (persons []Person, err error) {
+func (p *Person) GetAll() (persons []Person, err error) {
 	persons = make([]Person, 0)
 	rows, err := db.SqlDB.Query("SELECT id, firstname, lastname FROM person")
 	defer rows.Close()
-
 	if err != nil {
 		return
 	}
-
 	for rows.Next() {
 		var person Person
 		rows.Scan(&person.Id, &person.FirstName, &person.LastName)

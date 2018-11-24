@@ -11,6 +11,7 @@ func InitRouter() *gin.Engine {
 	router.GET("/ping", Pong) // JSON
 	router.GET("/getperson/:id", GetPerson)
 	router.GET("/addperson", AddPerson) // ?firstname=a&lastname=b
+	router.GET("/getallperson", GetAllPerson)
 	//router.StaticFile("/favicon.ico", "./resource/favicon.ico") // 相对路径 相对main.go
 	//
 	return router
