@@ -1,7 +1,7 @@
 package main
 
-import "gin/router"
-import db "gin/database"
+import "gindemo/router"
+import db "gindemo/database"
 
 func main() {
 	defer db.SqlDB.Close()
