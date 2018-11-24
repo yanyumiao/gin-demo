@@ -20,7 +20,8 @@ func (p *Person) Get() (person Person) {
 	return
 }
 
-func (p *Person) AddPerson() (id int64, err error) {
+// int64 ? even use int
+func (p *Person) Add() (id int64, err error) {
 	rs, err := db.SqlDB.Exec("INSERT INTO person(firstname, lastname) VALUES (?, ?)", p.FirstName, p.LastName)
 	if err != nil {
 		return

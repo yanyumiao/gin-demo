@@ -15,3 +15,14 @@ func GetPerson(c *gin.Context) {
 	person := p.Get()
 	c.String(http.StatusOK, person.FirstName)
 }
+
+func AddPerson(c *gin.Context) {
+	var p model.Person
+	var firstname = c.Query("firstname")
+	var lastname = c.Query("lastname")
+	p.FirstName = firstname
+	p.LastName = lastname
+	var id, _ = p.Add() // TODO check err
+	p.Id = int(id)      // TODO cannot use id (type int64) as type int
+	c.JSON(200, p)
+}
