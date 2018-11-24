@@ -1,7 +1,7 @@
 package model
 
 import (
-	db "gindemo/database"
+	db "gin-demo/database"
 	//"log"
 )
 

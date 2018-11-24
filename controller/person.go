@@ -2,7 +2,7 @@ package controller
 
 import "github.com/gin-gonic/gin"
 import "net/http"
-import model "gindemo/model"
+import model "gin-demo/model"
 import "strconv"
 
 func AddPerson(c *gin.Context) {
