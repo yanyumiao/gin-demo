@@ -7,21 +7,21 @@ import (
 
 type Person struct {
 	Id        int    `json:"id" form:"id"`
-	FirstName string `json:"first_name" form:"first_name"`
-	LastName  string `json:"last_name" form:"last_name"`
+	FirstName string `json:"firstname" form:"firstname"`
+	LastName  string `json:"lastname" form:"lastname"`
 }
 
 // author: YanYuMiao
 func (p *Person) Get() (person Person) {
 	// TODO 翻译总结 go-database-sql.org
 	// http://go-database-sql.org/retrieving.html
-	row := db.SqlDB.QueryRow("SELECT id, first_name, last_name FROM person WHERE id = ?", p.Id)
+	row := db.SqlDB.QueryRow("SELECT id, firstname, lastname FROM person WHERE id = ?", p.Id)
 	row.Scan(&person.Id, &person.FirstName, &person.LastName)
 	return
 }
 
 func (p *Person) AddPerson() (id int64, err error) {
-	rs, err := db.SqlDB.Exec("INSERT INTO person(first_name, last_name) VALUES (?, ?)", p.FirstName, p.LastName)
+	rs, err := db.SqlDB.Exec("INSERT INTO person(firstname, lastname) VALUES (?, ?)", p.FirstName, p.LastName)
 	if err != nil {
 		return
 	}
@@ -31,7 +31,7 @@ func (p *Person) AddPerson() (id int64, err error) {
 
 func (p *Person) GetPersons() (persons []Person, err error) {
 	persons = make([]Person, 0)
-	rows, err := db.SqlDB.Query("SELECT id, first_name, last_name FROM person")
+	rows, err := db.SqlDB.Query("SELECT id, firstname, lastname FROM person")
 	defer rows.Close()
 
 	if err != nil {

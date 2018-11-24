@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2018-11-14 23:27:01
+Date: 2018-11-24 19:19:44
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,7 +21,13 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `person`;
 CREATE TABLE `person` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(40) NOT NULL DEFAULT '',
-  `last_name` varchar(40) NOT NULL DEFAULT '',
+  `firstname` varchar(40) NOT NULL DEFAULT '',
+  `lastname` varchar(40) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of person
+-- ----------------------------
+INSERT INTO `person` VALUES ('1', 'yan', 'yumiao');
+INSERT INTO `person` VALUES ('2', 'hu', 'ge');
