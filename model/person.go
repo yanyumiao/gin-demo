@@ -2,7 +2,6 @@ package model
 
 import (
 	db "gin-demo/database"
-	//"log"
 )
 
 type Person struct {
