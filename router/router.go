@@ -8,9 +8,9 @@ func InitRouter() *gin.Engine {
 	// router
 	router.GET("/", Hello)
 	router.GET("/test", Test)
-	router.GET("/ping", Pong)           // JSON
-	router.GET("/addperson", AddPerson) // ?firstname=a&lastname=b
-	router.GET("/getperson/:id", GetPerson)
+	router.GET("/ping", Pong)               // JSON
+	router.GET("/addperson", AddPerson)     // ?firstname=a&lastname=b
+	router.GET("/getperson/:id", GetPerson) // /getperson/1
 	router.GET("/getallperson", GetAllPerson)
 	router.GET("/delperson", DelPerson)       // ?id=4
 	router.GET("/updateperson", UpdatePerson) // ?id=4&firstname=a&lastname=b
