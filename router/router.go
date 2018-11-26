@@ -6,9 +6,12 @@ import . "gin-demo/controller" // Notice: ".", 点操作 导入包后 调用这�
 func InitRouter() *gin.Engine {
 	router := gin.Default()
 	// router
+	// hello.go
 	router.GET("/", Hello)
 	router.GET("/test", Test)
-	router.GET("/ping", Pong)               // JSON
+	router.GET("/ping", Pong)
+	router.GET("/async", Async)
+	// person.go               // JSON
 	router.GET("/addperson", AddPerson)     // ?firstname=a&lastname=b
 	router.GET("/getperson/:id", GetPerson) // /getperson/1
 	router.GET("/getallperson", GetAllPerson)

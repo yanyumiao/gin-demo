@@ -2,6 +2,8 @@ package controller
 
 import "github.com/gin-gonic/gin"
 import "net/http"
+import "log"
+import "time"
 
 func Hello(c *gin.Context) {
 	c.String(http.StatusOK, "hello")
@@ -9,6 +11,16 @@ func Hello(c *gin.Context) {
 
 func Test(c *gin.Context) {
 	c.String(http.StatusOK, "test")
+}
+
+func Async(c *gin.Context) {
+	var c_copy = c.Copy()
+	go func() {
+		time.Sleep(5 * time.Second)
+		// you can see it on console
+		log.Println("Done! in path" + c_copy.Request.URL.Path)
+	}()
+	c.String(http.StatusOK, "ok")
 }
 
 func Pong(c *gin.Context) {
