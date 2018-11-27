@@ -14,3 +14,5 @@ H is a shortcut for map[string]interface{}
 如model有person.go 包含了 AddPerson DelPerson等方法  
 user.go 包含 AddUser DelUser等方法    
 方法和文件对应清晰 方便后期项目的维护  
+
+5 async demo  
