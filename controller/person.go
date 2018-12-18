@@ -27,20 +27,21 @@ func GetPerson(c *gin.Context) {
 	person, err := p.GetPerson()
 	// TODO
 	if err != nil {
-		var res MyErr
-		res.Code = -1
-		res.Desc = "error"
-		log.Println("Error:", res.Desc)
+		res := res(-1, "unknow error", nil)
+		//log.Println("Error:", res.Desc)
 		c.JSON(200, res)
 	} else {
-		c.JSON(200, person)
+		res := res(0, "ok", person)
+		//log.Println("Error:", res.Desc)
+		c.JSON(200, res)
+		//c.JSON(200, person)
 	}
 }
 
 func GetAllPerson(c *gin.Context) {
 	var p model.Person
 	persons, _ := p.GetAllPerson()
-	c.JSON(200, persons)
+	c.JSON(200, res(0, "ok", persons))
 }
 
 func DelPerson(c *gin.Context) {

@@ -9,10 +9,6 @@ func Hello(c *gin.Context) {
 	c.String(http.StatusOK, "hello")
 }
 
-func Test(c *gin.Context) {
-	c.String(http.StatusOK, "test")
-}
-
 func Async(c *gin.Context) {
 	var c_copy = c.Copy()
 	// 异步
@@ -28,6 +24,6 @@ func Pong(c *gin.Context) {
 	// type H map[string]interface{}
 	// H is a shortcut for map[string]interface{}
 	// interface{}接口类型 表示value可以是任何数据类型
-	c.JSON(200, map[string]interface{}{"code": 1, "msg": "pong"})
-	//c.JSON(200, gin.H{"code": 1, "msg": "pong"})
+	c.JSON(200, gin.H{"ret": 0, "msg": "ok"})
+	//c.JSON(200, map[string]interface{}{"ret": 0, "msg": "pong"})
 }
