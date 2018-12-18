@@ -24,8 +24,17 @@ func GetPerson(c *gin.Context) {
 	// Notice: 强制类型转换
 	// TODO 总结Go的类型转换
 	p.Id, _ = strconv.Atoi(id) // Notice: int(id) not work!
-	person := p.GetPerson()
-	c.JSON(200, person)
+	person, err := p.GetPerson()
+	// TODO
+	if err != nil {
+		var res MyErr
+		res.Code = -1
+		res.Desc = "error"
+		log.Println("Error:", res.Desc)
+		c.JSON(200, res)
+	} else {
+		c.JSON(200, person)
+	}
 }
 
 func GetAllPerson(c *gin.Context) {

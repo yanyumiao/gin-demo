@@ -21,11 +21,14 @@ func (p *Person) AddPerson() (id int64, err error) {
 }
 
 // author: YanYuMiao
-func (p *Person) GetPerson() (person Person) {
+func (p *Person) GetPerson() (person Person, err error) {
 	// TODO 翻译总结 go-database-sql.org
 	// http://go-database-sql.org/retrieving.html
 	row := db.SqlDB.QueryRow("SELECT id, firstname, lastname FROM person WHERE id = ?", p.Id)
-	row.Scan(&person.Id, &person.FirstName, &person.LastName)
+	err = row.Scan(&person.Id, &person.FirstName, &person.LastName)
+	if err != nil {
+		return
+	}
 	return
 }
 
