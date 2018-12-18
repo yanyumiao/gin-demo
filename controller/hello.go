@@ -15,7 +15,7 @@ func Test(c *gin.Context) {
 
 func Async(c *gin.Context) {
 	var c_copy = c.Copy()
-	// 主程结束 协程仍在进行
+	// 异步
 	go func() {
 		time.Sleep(5 * time.Second)
 		// you can see it on console
