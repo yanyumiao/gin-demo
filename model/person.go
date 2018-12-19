@@ -10,8 +10,7 @@ type Person struct {
 	LastName  string `json:"lastname" form:"lastname"`
 }
 
-// int64 ? even use int
-func (p *Person) AddPerson() (id int64, err error) {
+func (p *Person) Add() (id int64, err error) {
 	rs, err := db.SqlDB.Exec("INSERT INTO person(firstname, lastname) VALUES (?, ?)", p.FirstName, p.LastName)
 	if err != nil {
 		return
@@ -20,9 +19,7 @@ func (p *Person) AddPerson() (id int64, err error) {
 	return
 }
 
-// author: YanYuMiao
-func (p *Person) GetPerson() (person Person, err error) {
-	// TODO 翻译总结 go-database-sql.org
+func (p *Person) Get() (person Person, err error) {
 	// http://go-database-sql.org/retrieving.html
 	row := db.SqlDB.QueryRow("SELECT id, firstname, lastname FROM person WHERE id = ?", p.Id)
 	err = row.Scan(&person.Id, &person.FirstName, &person.LastName)
@@ -32,7 +29,7 @@ func (p *Person) GetPerson() (person Person, err error) {
 	return
 }
 
-func (p *Person) GetAllPerson() (persons []Person, err error) {
+func (p *Person) GetAll() (persons []Person, err error) {
 	persons = make([]Person, 0)
 	rows, err := db.SqlDB.Query("SELECT id, firstname, lastname FROM person")
 	defer rows.Close()
@@ -50,8 +47,7 @@ func (p *Person) GetAllPerson() (persons []Person, err error) {
 	return
 }
 
-// ? int64
-func (p *Person) DelPerson() (ra int64, err error) {
+func (p *Person) Del() (ra int64, err error) {
 	rs, err := db.SqlDB.Exec("DELETE FROM person WHERE id=?", p.Id)
 	if err != nil {
 		return
@@ -60,7 +56,7 @@ func (p *Person) DelPerson() (ra int64, err error) {
 	return
 }
 
-func (p *Person) UpdatePerson() (ra int64, err error) {
+func (p *Person) Update() (ra int64, err error) {
 	rs, err := db.SqlDB.Exec("UPDATE person SET firstname=?, lastname=? WHERE id=?", p.FirstName, p.LastName, p.Id)
 	if err != nil {
 		return

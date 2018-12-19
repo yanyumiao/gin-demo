@@ -17,6 +17,5 @@ func InitRouter() *gin.Engine {
 	router.GET("/delperson", DelPerson)       // ?id=4
 	router.GET("/updateperson", UpdatePerson) // ?id=4&firstname=a&lastname=b
 	//router.StaticFile("/favicon.ico", "./resource/favicon.ico") // 相对路径 相对main.go
-	//
 	return router
 }
