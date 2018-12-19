@@ -1,8 +1,6 @@
 package model
 
-import (
-	db "gin-demo/database"
-)
+import db "gin-demo/database"
 
 type Person struct {
 	Id        int    `json:"id" form:"id"`
