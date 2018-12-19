@@ -1,10 +1,8 @@
 package database
 
-import (
-	"database/sql"
-	_ "github.com/go-sql-driver/mysql"
-	"log"
-)
+import "database/sql"
+import _ "github.com/go-sql-driver/mysql"
+import "log"
 
 var SqlDB *sql.DB
 
