@@ -8,14 +8,16 @@ func InitRouter() *gin.Engine {
 	// router
 	// hello.go
 	router.GET("/", Hello)
+	router.GET("/hello", Hello)
 	router.GET("/ping", Pong)
 	router.GET("/async", Async)
+	router.GET("/redis/con", ConRedis) // ?k=abc&v=123
 	// person.go
-	router.GET("/addperson", AddPerson)     // ?firstname=a&lastname=b
-	router.GET("/getperson/:id", GetPerson) // /getperson/1
-	router.GET("/getallperson", GetAllPerson)
-	router.GET("/delperson", DelPerson)       // ?id=4
-	router.GET("/updateperson", UpdatePerson) // ?id=4&firstname=a&lastname=b
-	//router.StaticFile("/favicon.ico", "./resource/favicon.ico")
+	router.GET("/person/add", AddPerson)     // ?firstname=a&lastname=b
+	router.GET("/person/get", GetPerson) // /getperson/1
+	router.GET("/person/all", GetAllPerson)
+	router.GET("/person/del", DelPerson)       // ?id=4
+	router.GET("/person/update", UpdatePerson) // ?id=4&firstname=a&lastname=b
+	// router.StaticFile("/favicon.ico", "./resource/favicon.ico")
 	return router
 }

@@ -23,7 +23,8 @@ func AddPerson(c *gin.Context) {
 
 func GetPerson(c *gin.Context) {
 	var p model.Person
-	var id = c.Param("id")     // Notice: string
+	//var id = c.Param("id")     // Notice: string
+	var id = c.Query("id")     // Notice: string
 	p.Id, _ = strconv.Atoi(id) // Notice: int(id) not work!
 	person, err := p.Get()
 	if err != nil {
