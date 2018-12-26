@@ -11,10 +11,10 @@ func InitRouter() *gin.Engine {
 	router.GET("/hello", Hello)
 	router.GET("/ping", Pong)
 	router.GET("/async", Async)
-	router.GET("/redis/con", ConRedis) // ?k=abc&v=123
-	router.GET("/redis/set", Rset) // ?k=abc&v=123
+	router.GET("/redis/con", ConRedis)
+	router.GET("/redis/set", Rset)
 	// person.go
-	router.GET("/person/add", AddPerson)     // ?firstname=a&lastname=b
+	router.GET("/person/add", AddPerson) // ?firstname=a&lastname=b
 	router.GET("/person/get", GetPerson) // /getperson/1
 	router.GET("/person/all", GetAllPerson)
 	router.GET("/person/del", DelPerson)       // ?id=4
