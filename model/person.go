@@ -9,7 +9,7 @@ type Person struct {
 }
 
 func (p *Person) Add() (id int64, err error) {
-	rs, err := db.SqlDB.Exec("INSERT INTO person(firstname, lastname) VALUES (?, ?)", p.FirstName, p.LastName)
+	rs, err := db.My.Exec("INSERT INTO person(firstname, lastname) VALUES (?, ?)", p.FirstName, p.LastName)
 	if err != nil {
 		return
 	}
@@ -19,7 +19,7 @@ func (p *Person) Add() (id int64, err error) {
 
 func (p *Person) Get() (person Person, err error) {
 	// http://go-database-sql.org/retrieving.html
-	row := db.SqlDB.QueryRow("SELECT id, firstname, lastname FROM person WHERE id = ?", p.Id)
+	row := db.My.QueryRow("SELECT id, firstname, lastname FROM person WHERE id = ?", p.Id)
 	err = row.Scan(&person.Id, &person.FirstName, &person.LastName)
 	if err != nil {
 		return
@@ -29,7 +29,7 @@ func (p *Person) Get() (person Person, err error) {
 
 func (p *Person) GetAll() (persons []Person, err error) {
 	persons = make([]Person, 0)
-	rows, err := db.SqlDB.Query("SELECT id, firstname, lastname FROM person")
+	rows, err := db.My.Query("SELECT id, firstname, lastname FROM person")
 	defer rows.Close()
 	if err != nil {
 		return
@@ -46,7 +46,7 @@ func (p *Person) GetAll() (persons []Person, err error) {
 }
 
 func (p *Person) Del() (ra int64, err error) {
-	rs, err := db.SqlDB.Exec("DELETE FROM person WHERE id=?", p.Id)
+	rs, err := db.My.Exec("DELETE FROM person WHERE id=?", p.Id)
 	if err != nil {
 		return
 	}
@@ -55,7 +55,7 @@ func (p *Person) Del() (ra int64, err error) {
 }
 
 func (p *Person) Update() (ra int64, err error) {
-	rs, err := db.SqlDB.Exec("UPDATE person SET firstname=?, lastname=? WHERE id=?", p.FirstName, p.LastName, p.Id)
+	rs, err := db.My.Exec("UPDATE person SET firstname=?, lastname=? WHERE id=?", p.FirstName, p.LastName, p.Id)
 	if err != nil {
 		return
 	}

@@ -26,6 +26,7 @@ func Pong(c *gin.Context) {
 	//c.JSON(200, map[string]interface{}{"ret": 0, "msg": "pong"})
 }
 
+// connect redis
 func ConRedis(c *gin.Context) {
 	con, err := redis.Dial("tcp", ":6379")
 	if err != nil {
@@ -35,5 +36,13 @@ func ConRedis(c *gin.Context) {
 		log.Println("ok")
 	}
 	defer con.Close()
+	c.JSON(200, gin.H{"ret": 0, "msg": "ok"})
+}
+
+// redis set
+func Rset(c *gin.Context) {
+	con, _ := redis.Dial("tcp", ":6379")
+	defer con.Close()
+	con.Do("set", "test", "abc")
 	c.JSON(200, gin.H{"ret": 0, "msg": "ok"})
 }
