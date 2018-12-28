@@ -2,6 +2,8 @@ package model
 
 import db "gin-demo/database"
 
+//import "time"
+
 type Person struct {
 	Id        int    `json:"id" form:"id"`
 	FirstName string `json:"firstname" form:"firstname"`
@@ -34,6 +36,8 @@ func (p *Person) GetAll() (persons []Person, err error) {
 	if err != nil {
 		return
 	}
+	//测试连接池效果 保持db连接不释放
+	//time.Sleep(time.Second * 5)
 	for rows.Next() {
 		var person Person
 		rows.Scan(&person.Id, &person.FirstName, &person.LastName)
