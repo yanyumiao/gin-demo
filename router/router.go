@@ -13,7 +13,7 @@ func InitRouter() *gin.Engine {
 	router.GET("/async", Async)
 	router.GET("/redis/set", Set)
 	// person.go
-	router.GET("/person/add", AddPerson) // ?firstname=a&lastname=b
+	router.GET("/person/add", AddPerson) // http://127.0.0.1:10086/person/add?firstname=a&lastname=b
 	router.GET("/person/get", GetPerson) // http://127.0.0.1:10086/person/get?id=1
 	router.GET("/person/all", GetAllPerson)
 	router.GET("/person/del", DelPerson)       // ?id=4
