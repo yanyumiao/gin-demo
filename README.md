@@ -3,7 +3,7 @@
 * MVC分层
 * 统一输出格式
 * 支持MySQL Rdis
-----
+
 ##### 开始
 1 DB准备 
 * demo使用MySQL数据库 
