@@ -5,7 +5,7 @@ gin-demo
 一个使用gin框架开发web服务的demo
 * MVC分层
 * 统一输出格式
-* 支持MySQL Rdis
+* 支持MySQL Redis
 
 ##### 开始
 1 DB准备 
