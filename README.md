@@ -13,7 +13,7 @@ gin-demo
 * 先创建 test数据库 运行 person.sql 创建person表
 * 注意redis设定了密码 参见redis.go文件中设置的是"123456"
 
-2 go 环境设置
+2 Go环境设置
 
 项目进行了更新 现在采用了 go module 进行工程管理
 所以启动项目之前 要设置支持 module
