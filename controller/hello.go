@@ -31,5 +31,7 @@ func Set(c *gin.Context) {
 	con := db.Pool.Get()
 	defer con.Close()
 	con.Do("set", "test", "abc")
+	//re, err :=con.Do("set", "test", "abc")
+	//fmt.Print(con, re, err)
 	c.JSON(200, gin.H{"ret": 0, "msg": "ok"})
 }
