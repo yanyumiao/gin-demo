@@ -8,6 +8,7 @@
 1 DB准备 
 * demo使用MySQL数据库 
 * 先创建 test数据库 运行 person.sql 创建person表
+* 注意redis设定
 
 2 go 环境设置
 
