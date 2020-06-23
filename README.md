@@ -1,4 +1,7 @@
-#### gin-demo   
+gin-demo
+======
+
+##### 关于
 一个使用gin框架开发web服务的demo
 * MVC分层
 * 统一输出格式
@@ -22,7 +25,7 @@ go env -w GO111MODULE=on
 go env -w GOPROXY=https://goproxy.cn,https://goproxy.io,direct
 ```
 
-2.3 注意
+注意:
 
 因为采用了 go module 管理工程 项目位置不要再放置在 $GOPATH/src
 
